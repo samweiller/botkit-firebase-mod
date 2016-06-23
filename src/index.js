@@ -15,7 +15,8 @@ module.exports = function(config) {
     var rootRef = new Firebase(config.firebase_uri),
         teamsRef = rootRef.child('teams'),
         usersRef = rootRef.child('users'),
-        channelsRef = rootRef.child('channels');
+        channelsRef = rootRef.child('channels'),
+        ordersRef = rootRef.child('orders');
 
     return {
         teams: {
@@ -32,6 +33,11 @@ module.exports = function(config) {
             get: get(usersRef),
             save: save(usersRef),
             all: all(usersRef)
+        },
+        orders: {
+          get: get(ordersRef),
+          save: save(ordersRef),
+          all: all(ordersRef)
         }
     };
 };
